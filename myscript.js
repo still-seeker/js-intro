@@ -13,6 +13,10 @@ let scoreComputer = 0;
 const playerScore = document.querySelector('.player-score');
 const computerScore = document.querySelector('.computer-score');
 
+let currentRound = 1;
+const totalRounds = 5;
+const round = document.querySelector(".round");
+
 function playRound(humanChoice){
     const choices = ['rock', 'paper', 'scissors'];
     const computerChoice = choices[Math.floor(Math.random() * choices.length)]
@@ -50,14 +54,30 @@ function playRound(humanChoice){
     //update the score display
     playerScore.textContent = `Player Score: ${scorePlayer}`;
     computerScore.textContent = `Computer Score: ${scoreComputer}`;
+
+    if (currentRound < totalRounds) {
+        round.textContent = `ROUND: ${currentRound} of ${totalRounds}`;
+        currentRound++;
+   
+    }
+
+    else if (currentRound == totalRounds){
+        round.textContent = 'FINAL ROUND';
+     
+    }
+
+    else {
+        if (scorePlayer > scoreComputer)
+            result.textContent = "CONGRATULATIONS!! YOU WIN";
+        else if (scorePlayer < scoreComputer)
+            result.textContent = "BETTER LUCK NEXT TIME";
+        else 
+            result.textContent = "OOPS:) THE GAME ENDS IN A DRAW";
+    }
+    
     
 }
-let rnd = 0;
-function round() {
-    const gameRound = document.querySelector(".round");
-    for (let i = 0; i < 5; i++){
-        playRound(humanChoice);
-        rnd++;
-        gameRound.textContent = `ROUND: ${rnd}`;
-    }
-}
+
+
+
+
