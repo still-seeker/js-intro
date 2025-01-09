@@ -4,8 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #398d12, #182b01);
+            color: blueviolet;
+        }
+
+        #container {
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: darkslategray;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        #choices button {
+            padding: 15px 25px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #474f05;
+        }
+
+        .scoreboard {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        .player-score, .computer-score{
+            margin: 10px;
+            color: aqua;
+        }
+
+        .round {
+            color: rgb(90, 9, 9);
+            font-weight: 700;
+        }
+
+    </style>
 </head>
 <body>
+    <div id="container">
+        <h1>ROCK-PAPER-SCISSORS</h1>
+        <div class="container">
+            <button class="rock">ROCK</button>
+            <button class="paper">PAPER</button>
+            <button class="scissors">SCISSORS</button>
+        </div>
+        <div class="result"></div>
+        <div class="scoreboard">
+            <div class="player-score">Player Score: 0</div>
+            <div class="computer-score">Computer Score: 0</div>
+        </div>
+        <div class="round">ROUND: 0</div>
+    </div>
     <script type="text/javascript" src="myscript.js"></script>
 </body>
 </html>
