@@ -18,6 +18,7 @@ function game(){
     let scoreComputer = 0;
     const playerScore = document.querySelector('.player-score');
     const computerScore = document.querySelector('.computer-score');
+
     let currentRound = 1;
     const totalRounds = 5;
     const round = document.querySelector(".round");
@@ -59,43 +60,41 @@ function game(){
         //update the score display
         playerScore.textContent = `Player Score: ${scorePlayer}`;
         computerScore.textContent = `Computer Score: ${scoreComputer}`;
+
+        if (currentRound <= totalRounds) {
+            round.textContent = `ROUND: ${currentRound} of ${totalRounds}`;
+            currentRound++;
+
+        }
+        else {
+            
+            const gameContainer = document.querySelector(".game-container");
+            const conclusive = document.querySelector(".conclusion");
+            conclusive.style.display = "block";
+
+            if (gameContainer){
+                gameContainer.style.display = 'none';
+            }
+
+        
+
+            const finalMessage = document.querySelector(".finalMessage");
+            finalMessage.style.color = "yellow";
+            finalMessage.style.fontSize = "25px";
+            finalMessage.style.fontWeight = "bold"
+            finalMessage.textContent = `FINAL SCORE:: #YOU: ${scorePlayer} | #COMPUTER: ${scoreComputer} \\n REFRESH THE PAGE TO PLAY AGAIN`;
+            // const restart = document.querySelector("#finalBtn");
+            // restart.addEventListener = ("click", (e) => {
+            //     scoreComputer = 0;
+            //     scoreComputer = 0;
+            //     currentRound = 1;
+            //     const reset = document.querySelector(".game-container");
+            //     reset.style.display = "block"
+            // });
+            
+        }
            
     }
-    let i = 1;
-    while(i <= totalRounds){
-        round.textContent = `ROUND: ${i} of ${totalRounds}`;
-        currentRound++;
-
-        
-
-    }
-    //  {
-        
-    //     const gameContainer = document.querySelector(".game-container");
-    //     const conclusive = document.querySelector(".conclusion");
-    //     conclusive.style.display = "block";
-
-    //     if (gameContainer){
-    //         gameContainer.style.display = 'none';
-    //     }
-
-    
-
-    //     const finalMessage = document.querySelector(".finalMessage");
-    //     finalMessage.style.color = "yellow";
-    //     finalMessage.style.fontSize = "25px";
-    //     finalMessage.style.fontWeight = "bold"
-    //     finalMessage.textContent = `FINAL SCORE:: #YOU: ${scorePlayer} | #COMPUTER: ${scoreComputer}`;
-    //     const restart = document.querySelector("#finalBtn");
-    //     restart.addEventListener = ("click", (e) => {
-    //         scoreComputer = 0;
-    //         scoreComputer = 0;
-    //         currentRound = 1;
-    //         const reset = document.querySelector(".game-container");
-    //         reset.style.display = "block";
-    //     });
-        
-    //}
 }
 
 
