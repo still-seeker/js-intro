@@ -62,40 +62,57 @@ function game(){
         computerScore.textContent = `Computer Score: ${scoreComputer}`;
 
         if (currentRound <= totalRounds) {
-            round.textContent = `ROUND: ${currentRound} of ${totalRounds}`;
-            currentRound++;
-
-        }
-        else {
+            if (currentRound === totalRounds) {
+                round.textContent =  `ROUND: ${currentRound} of ${totalRounds}`;
+                const gameContainer = document.querySelector(".game-container");
+                const conclusive = document.querySelector(".conclusion");
+                conclusive.style.display = "block";
+    
+                if (gameContainer){
+                    gameContainer.style.display = 'none';
+                }
+    
             
-            const gameContainer = document.querySelector(".game-container");
-            const conclusive = document.querySelector(".conclusion");
-            conclusive.style.display = "block";
-
-            if (gameContainer){
-                gameContainer.style.display = 'none';
+    
+                const finalMessage = document.querySelector(".finalMessage");
+                finalMessage.style.color = "yellow";
+                finalMessage.style.fontSize = "25px";
+                finalMessage.style.fontWeight = "bold"
+                finalMessage.textContent = `FINAL SCORE:: #YOU: ${scorePlayer} | #COMPUTER: ${scoreComputer}`;
+                
+         
+            }
+            else {
+               round.textContent = `ROUND: ${currentRound} of ${totalRounds}`;
+                currentRound++;
             }
 
-        
-
-            const finalMessage = document.querySelector(".finalMessage");
-            finalMessage.style.color = "yellow";
-            finalMessage.style.fontSize = "25px";
-            finalMessage.style.fontWeight = "bold"
-            finalMessage.textContent = `FINAL SCORE:: #YOU: ${scorePlayer} | #COMPUTER: ${scoreComputer} \\n REFRESH THE PAGE TO PLAY AGAIN`;
-            // const restart = document.querySelector("#finalBtn");
-            // restart.addEventListener = ("click", (e) => {
-            //     scoreComputer = 0;
-            //     scoreComputer = 0;
-            //     currentRound = 1;
-            //     const reset = document.querySelector(".game-container");
-            //     reset.style.display = "block"
-            // });
-            
         }
-           
+        
     }
 }
+
+
+            
+// const restart = document.querySelector("#finalBtn");
+// restart.addEventListener = ("click", function() {
+//     // scoreComputer = 0;
+//     // scoreComputer = 0;
+//     // currentRound = 1;
+//     // totalRounds= 5;
+//     // const conclusion1 = document.querySelector(".conclusion");
+//     // if (conclusion1) {conclusion1.style.display = "none";}
+    
+//     // const reset = document.querySelector(".game-container");
+//     // if (reset) {reset.style.display = "block";}
+//     window.location.reload();
+    
+    
+// });
+
+
+   
+
 
 
 game();
