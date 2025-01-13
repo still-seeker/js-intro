@@ -20,7 +20,7 @@ function game(){
     const computerScore = document.querySelector('.computer-score');
 
     let currentRound = 1;
-    const totalRounds = 5;
+   let totalRounds = 5;
     const round = document.querySelector(".round");
 
     function playRound(humanChoice){
@@ -61,8 +61,10 @@ function game(){
         playerScore.textContent = `Player Score: ${scorePlayer}`;
         computerScore.textContent = `Computer Score: ${scoreComputer}`;
 
-        if (currentRound <= totalRounds) {
-            if (currentRound === totalRounds) {
+        if (currentRound <= totalRounds + 1) {
+            if (currentRound === totalRounds + 1) {
+                round.textContent = `ROUND: ${currentRound} of ${totalRounds}`;
+                currentRound++;
                 round.textContent =  `ROUND: ${currentRound} of ${totalRounds}`;
                 const gameContainer = document.querySelector(".game-container");
                 const conclusive = document.querySelector(".conclusion");
@@ -92,6 +94,9 @@ function game(){
     }
 }
 
+// function resett (t) {
+//     setTimeout("location.reload(true);", t);
+// }
 
             
 // const restart = document.querySelector("#finalBtn");
